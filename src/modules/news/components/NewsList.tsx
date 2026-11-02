@@ -2,56 +2,56 @@ import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
 
 const articles = [
   {
-    category: "Market",
-    title: "Property prices continue to rise in urban fringe districts",
-    summary: "Developers are seeing growing demand for mid-market homes near commuter routes and shopping corridors.",
-    date: "Nov 01, 2026",
-    readTime: "5 min read",
+    category: "Thị trường",
+    title: "Giá nhà tiếp tục tăng ở các khu vực ven đô",
+    summary: "Các nhà phát triển đang chứng kiến nhu cầu mạnh cho nhà trung cấp gần các trục di chuyển và khu mua sắm.",
+    date: "01/11/2026",
+    readTime: "5 phút đọc",
     image:
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80",
   },
   {
-    category: "Finance",
-    title: "Mortgage interest rates slow but refinancing opportunities remain favorable",
-    summary: "Borrowers are reviewing fixed-rate and hybrid products as lenders adjust pricing and closing terms.",
-    date: "Oct 29, 2026",
-    readTime: "7 min read",
+    category: "Tài chính",
+    title: "Lãi suất vay chậm lại nhưng cơ hội tái cấp vốn vẫn còn tốt",
+    summary: "Người vay đang xem xét sản phẩm lãi suất cố định và hỗn hợp khi ngân hàng điều chỉnh giá và điều kiện đóng gói.",
+    date: "29/10/2026",
+    readTime: "7 phút đọc",
     image:
       "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80",
   },
   {
-    category: "Policy",
-    title: "New regulation aims to improve transparency in off-plan sales",
-    summary: "Industry groups say clearer disclosure rules could reduce buyer uncertainty and strengthen market trust.",
-    date: "Oct 24, 2026",
-    readTime: "6 min read",
+    category: "Chính sách",
+    title: "Quy định mới nhằm tăng minh bạch trong giao dịch căn hộ chưa hoàn thành",
+    summary: "Các nhóm ngành cho rằng quy tắc công khai rõ ràng hơn có thể giảm rủi ro cho người mua và nâng niềm tin thị trường.",
+    date: "24/10/2026",
+    readTime: "6 phút đọc",
     image:
       "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80",
   },
   {
-    category: "Investment",
-    title: "Investors focus on rental yield and neighborhood infrastructure growth",
-    summary: "A growing number of investors are prioritizing access to schools, transit, and convenience retail over pure square footage.",
-    date: "Oct 20, 2026",
-    readTime: "8 min read",
+    category: "Đầu tư",
+    title: "Nhà đầu tư tập trung vào lợi suất cho thuê và tăng trưởng hạ tầng khu vực",
+    summary: "Một số lượng lớn nhà đầu tư ưu tiên tiếp cận trường học, giao thông và tiện ích mua sắm hơn là diện tích thuần túy.",
+    date: "20/10/2026",
+    readTime: "8 phút đọc",
     image:
       "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=900&q=80",
   },
   {
-    category: "Lifestyle",
-    title: "Homebuyers are prioritizing flexible spaces for remote work and family life",
-    summary: "Design features like home offices, storage, and private outdoor areas are becoming key decision factors.",
-    date: "Oct 18, 2026",
-    readTime: "4 min read",
+    category: "Lối sống",
+    title: "Người mua nhà ưu tiên không gian linh hoạt cho làm việc từ xa và gia đình",
+    summary: "Các tính năng như phòng làm việc, kho lưu trữ và khu vực ngoài trời riêng tư đang trở thành yếu tố quyết định quan trọng.",
+    date: "18/10/2026",
+    readTime: "4 phút đọc",
     image:
       "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=900&q=80",
   },
   {
-    category: "Development",
-    title: "Mixed-use projects reshape demand around transit hubs",
-    summary: "Developers are combining residential and retail components to appeal to modern buyers seeking convenience.",
-    date: "Oct 12, 2026",
-    readTime: "9 min read",
+    category: "Phát triển",
+    title: "Dự án hỗn hợp định hình nhu cầu xung quanh trung tâm giao thông",
+    summary: "Các nhà phát triển đang kết hợp các thành phần nhà ở và thương mại để thu hút người mua hiện đại tìm kiếm sự tiện lợi.",
+    date: "12/10/2026",
+    readTime: "9 phút đọc",
     image:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
   },
@@ -62,11 +62,11 @@ export function NewsList() {
     <section className="mx-auto max-w-6xl px-4 py-12">
       <div className="mb-8 flex items-center justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.15em] text-blue-600">Latest coverage</p>
-          <h2 className="mt-2 text-3xl font-bold text-slate-900">Real-estate news and market updates</h2>
+          <p className="text-sm font-semibold uppercase tracking-[0.15em] text-blue-600">Tin tức mới nhất</p>
+          <h2 className="mt-2 text-3xl font-bold text-slate-900">Tin bất động sản và cập nhật thị trường</h2>
         </div>
         <button className="hidden rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 sm:inline-flex">
-          View all articles
+          Xem tất cả bài viết
         </button>
       </div>
 
@@ -95,7 +95,7 @@ export function NewsList() {
               </div>
 
               <button className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-600">
-                Read more
+                Đọc thêm
                 <ArrowRight className="h-4 w-4" />
               </button>
             </div>

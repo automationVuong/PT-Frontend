@@ -1,19 +1,19 @@
 import { BarChart3, Building2, TrendingUp } from "lucide-react";
 
 const marketStats = [
-  { label: "Average price growth", value: "+8.6%" },
-  { label: "Rental yield", value: "5.2%" },
-  { label: "New launches", value: "24" },
-  { label: "Investor demand", value: "High" },
+  { label: "Tăng giá trung bình", value: "+8,6%" },
+  { label: "Lợi suất cho thuê", value: "5,2%" },
+  { label: "Dự án mới", value: "24" },
+  { label: "Nhu cầu nhà đầu tư", value: "Cao" },
 ];
 
 const quickTopics = [
-  "Residential market outlook",
-  "Commercial property trends",
-  "Mortgage strategy updates",
-  "Legal and contract guidance",
-  "Neighborhood investment guide",
-  "Luxury property demand",
+  "Triển vọng thị trường căn hộ",
+  "Xu hướng bất động sản thương mại",
+  "Cập nhật chiến lược vay mua nhà",
+  "Hướng dẫn pháp lý và hợp đồng",
+  "Cẩm nang đầu tư theo khu vực",
+  "Nhu cầu căn nhà cao cấp",
 ];
 
 export function NewsSidebar() {
@@ -24,7 +24,7 @@ export function NewsSidebar() {
           <div className="rounded-xl bg-blue-100 p-2 text-blue-700">
             <BarChart3 className="h-5 w-5" />
           </div>
-          <h3 className="text-xl font-bold text-slate-900">Market snapshot</h3>
+          <h3 className="text-xl font-bold text-slate-900">Tổng quan thị trường</h3>
         </div>
 
         <div className="grid gap-3">
@@ -42,7 +42,7 @@ export function NewsSidebar() {
           <div className="rounded-xl bg-amber-100 p-2 text-amber-700">
             <Building2 className="h-5 w-5" />
           </div>
-          <h3 className="text-xl font-bold text-slate-900">Popular topics</h3>
+          <h3 className="text-xl font-bold text-slate-900">Chủ đề phổ biến</h3>
         </div>
 
         <div className="space-y-2">
