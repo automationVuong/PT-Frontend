@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CanvasDropDown } from "@/components/ui/CanvasDropDown";
-import { UserDrawer } from "@/components/layout/UserDrawer"; // Đảm bảo đường dẫn này khớp với vị trí đặt file UserDrawer của bạn
+import { UserDrawer } from "@/components/layout/UserDrawer";
 
 export default function Header() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function Header() {
       <header className="relative z-40 w-full border-b border-slate-200 bg-white">
         <div className="mx-auto grid max-w-[1280px] grid-cols-[220px_minmax(0,1fr)_180px] items-center gap-4 px-4 py-3 lg:px-6">
 
-          {/* Logo sử dụng tệp logo.jpg từ thư mục public */}
+          {/* Logo quay về trang chủ */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative h-9 w-9 overflow-hidden flex items-center justify-center">
               <Image
@@ -31,7 +31,7 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Navigation (Giữ nguyên toàn bộ các mục cũ) */}
+          {/* Navigation với đường dẫn thực tế */}
           <nav className="flex items-center justify-center gap-7 text-[13px] font-medium text-slate-700">
             <CanvasDropDown
               label="Mua"
@@ -40,8 +40,8 @@ export default function Header() {
                 ["Định giá tài sản", "Nhà đầu tư"],
               ]}
               hrefs={[
-                ["/du-an", "/nha-moi", "/vay-mua-nha"],
-                ["/dinh-gia", "/nha-dau-tu"],
+                ["/du-an", "/du-an", "/du-an"],
+                ["/du-an", "/du-an"],
               ]}
             />
 
@@ -51,6 +51,10 @@ export default function Header() {
                 ["Nhà cho thuê", "Căn hộ cho thuê", "Biểu mẫu thuê"],
                 ["Hướng dẫn thuê", "Địa điểm nổi bật"]
               ]}
+              hrefs={[
+                ["/du-an", "/du-an", "/du-an"],
+                ["/du-an", "/du-an"],
+              ]}
             />
 
             <CanvasDropDown
@@ -58,6 +62,10 @@ export default function Header() {
               groups={[
                 ["Chỉ số giá nhà", "Giá nhà gần đây", "Biểu đồ giá"],
                 ["Khu vực hot", "So sánh giá"]
+              ]}
+              hrefs={[
+                ["/du-an", "/du-an", "/du-an"],
+                ["/du-an", "/du-an"],
               ]}
             />
 
@@ -67,13 +75,21 @@ export default function Header() {
                 ["Lãi suất vay", "Tính khoản vay", "Hồ sơ vay"],
                 ["Tư vấn tài chính", "Lựa chọn ngân hàng"]
               ]}
+              hrefs={[
+                ["/du-an", "/du-an", "/du-an"],
+                ["/du-an", "/du-an"],
+              ]}
             />
 
             <CanvasDropDown
               label="Môi giới"
               groups={[
-                ["Tìm môi giới", "Đại lý uy tín", "Dịch vụ chuyên nghiệp"],
+                ["Tìm môi giới", "Trò chuyện tư vấn", "Dịch vụ chuyên nghiệp"],
                 ["Đánh giá nhà", "Hỗ trợ khách hàng"]
+              ]}
+              hrefs={[
+                ["/nhan-tin", "/nhan-tin", "/nhan-tin"],
+                ["/nhan-tin", "/nhan-tin"],
               ]}
             />
 
@@ -83,6 +99,10 @@ export default function Header() {
                 ["Bất động sản thương mại", "Tìm văn phòng", "Tìm mặt bằng"],
                 ["Hỗ trợ đầu tư", "Đăng tin"]
               ]}
+              hrefs={[
+                ["/du-an", "/du-an", "/du-an"],
+                ["/du-an", "/du-an"],
+              ]}
             />
 
             <CanvasDropDown
@@ -90,6 +110,10 @@ export default function Header() {
               groups={[
                 ["Tin tức bất động sản", "Cộng đồng", "Xu hướng thị trường"],
                 ["Video review", "Khuyến nghị"]
+              ]}
+              hrefs={[
+                ["/tin-tuc", "/tin-tuc", "/tin-tuc"],
+                ["/tin-tuc", "/tin-tuc"],
               ]}
             />
 
@@ -99,10 +123,14 @@ export default function Header() {
                 ["Bất động sản quốc tế", "Nhà ở nước ngoài", "Đầu tư quốc tế"],
                 ["Địa điểm nổi tiếng", "Tư vấn pháp lý"]
               ]}
+              hrefs={[
+                ["/tin-tuc", "/tin-tuc", "/tin-tuc"],
+                ["/tin-tuc", "/tin-tuc"],
+              ]}
             />
           </nav>
 
-          {/* Account (Gắn sự kiện click để mở UserDrawer) */}
+          {/* Nút Tài khoản cá nhân */}
           <div className="flex justify-end">
             <button
               type="button"
@@ -118,7 +146,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Bảng điều khiển trượt UserDrawer */}
+      {/* Slide-over UserDrawer */}
       <UserDrawer 
         isOpen={isDrawerOpen} 
         onClose={() => setIsDrawerOpen(false)} 

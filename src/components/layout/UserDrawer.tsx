@@ -58,7 +58,7 @@ export function UserDrawer({ isOpen, onClose, userName = "Vuong" }: UserDrawerPr
               <div>
                 <h3 className="text-xl font-bold text-slate-900">{userName}</h3>
                 <Link 
-                  href="/account" 
+                  href="/thong-tin-ca-nhan" 
                   onClick={onClose}
                   className="text-sm font-semibold text-[#0f6b73] hover:underline"
                 >
@@ -70,7 +70,7 @@ export function UserDrawer({ isOpen, onClose, userName = "Vuong" }: UserDrawerPr
             {/* Danh sách các tùy chọn menu */}
             <div className="px-4 py-4 space-y-1">
               <Link 
-                href="/saved-properties" 
+                href="#" 
                 onClick={onClose}
                 className="flex items-center gap-4 px-4 py-3 rounded-xl text-slate-800 font-semibold hover:bg-slate-50 transition"
               >
@@ -79,12 +79,12 @@ export function UserDrawer({ isOpen, onClose, userName = "Vuong" }: UserDrawerPr
               </Link>
 
               <Link 
-                href="/enquiries" 
+                href="/nhan-tin" 
                 onClick={onClose}
                 className="flex items-center gap-4 px-4 py-3 rounded-xl text-slate-800 font-semibold hover:bg-slate-50 transition"
               >
                 <Send className="w-5 h-5 text-slate-700" />
-                <span>Yêu cầu tư vấn / Enquiries</span>
+                <span>Yêu cầu tư vấn / Nhắn tin với chuyên gia</span>
               </Link>
 
               <Link 
@@ -119,7 +119,7 @@ export function UserDrawer({ isOpen, onClose, userName = "Vuong" }: UserDrawerPr
           {/* Phần chân panel: Cài đặt và Đăng xuất */}
           <div className="p-4 border-t border-slate-200 space-y-2">
             <Link 
-              href="/account-settings" 
+              href="/cai-dat-tai-khoan" 
               onClick={onClose}
               className="flex items-center gap-4 px-4 py-3 rounded-xl text-slate-800 font-semibold hover:bg-slate-50 transition"
             >
