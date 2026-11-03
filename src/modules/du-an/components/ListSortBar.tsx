@@ -4,10 +4,10 @@ type ListSortBarProps = {
 };
 
 const tabs = [
-  "Newest",
-  "Price",
-  "Price/sqft",
-  "Area",
+  "Mới nhất",
+  "Giá",
+  "Giá/m²",
+  "Diện tích",
 ];
 
 export function ListSortBar({ viewMode, onViewChange }: ListSortBarProps) {
@@ -39,7 +39,7 @@ export function ListSortBar({ viewMode, onViewChange }: ListSortBarProps) {
                 ? "border-slate-900 bg-slate-900 text-white"
                 : "border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300"
             }`}
-            aria-label="Grid view"
+            aria-label="Xem dạng lưới"
           >
             ▦
           </button>
@@ -51,7 +51,7 @@ export function ListSortBar({ viewMode, onViewChange }: ListSortBarProps) {
                 ? "border-slate-900 bg-slate-900 text-white"
                 : "border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300"
             }`}
-            aria-label="List view"
+            aria-label="Xem dạng danh sách"
           >
             ☰
           </button>
