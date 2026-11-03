@@ -27,7 +27,7 @@ export function PropertyCard({
   title,
   location,
   price,
-  priceLabel = "giá",
+  priceLabel = "price",
   tags = [],
   featured = false,
   href,
@@ -36,25 +36,32 @@ export function PropertyCard({
 
   return (
     <Link href={cardHref} className="block w-full cursor-pointer">
-      <article className="overflow-hidden rounded-[18px] border border-slate-200 bg-white shadow-[0_1px_0_rgba(15,23,42,0.02)] ring-1 ring-slate-100 transition hover:-translate-y-0.5 hover:shadow-md">
+      <article className="overflow-hidden rounded-[14px] border border-slate-200 bg-white shadow-[0_1px_0_rgba(15,23,42,0.02)] transition hover:-translate-y-0.5 hover:shadow-md">
         <div className="relative">
-          <img src={image} alt={title} className="h-60 w-full object-cover" />
+          <img src={image} alt={title} className="h-52 w-full object-cover" />
           {featured ? (
-            <span className="absolute left-3 top-3 rounded-md bg-blue-600 px-2 py-1 text-[10px] font-bold uppercase text-white shadow-sm">
-              Nổi bật
+            <span className="absolute left-3 top-3 rounded-md bg-[#f97316] px-2 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-white shadow-sm">
+              Featured
             </span>
           ) : null}
+          <button
+            type="button"
+            className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-sm text-slate-700 shadow-sm"
+            aria-label="Save property"
+          >
+            ♡
+          </button>
         </div>
 
-        <div className="space-y-3 p-4">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <h3 className="text-lg font-semibold text-slate-800">{title}</h3>
-              <p className="mt-1 text-sm text-slate-500">{location}</p>
+        <div className="space-y-3 p-3.5">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <h3 className="truncate text-[15px] font-semibold text-slate-800">{title}</h3>
+              <p className="mt-1 text-xs text-slate-500">{location}</p>
             </div>
-            <div className="text-right">
-              <div className="text-lg font-bold text-blue-700">{price}</div>
-              <div className="text-[11px] text-slate-500">{priceLabel}</div>
+            <div className="shrink-0 text-right">
+              <div className="text-[14px] font-bold text-slate-900">{price}</div>
+              <div className="text-[10px] uppercase tracking-[0.08em] text-slate-400">{priceLabel}</div>
             </div>
           </div>
 
@@ -62,7 +69,7 @@ export function PropertyCard({
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-blue-100 bg-blue-50 px-2.5 py-1 text-[10px] font-medium text-blue-700"
+                className="rounded-full border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] font-medium text-slate-600"
               >
                 {tag}
               </span>
