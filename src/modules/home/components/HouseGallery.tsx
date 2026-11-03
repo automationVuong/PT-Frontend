@@ -1,4 +1,4 @@
-import { SectionHeader } from "./SectionHeader";
+
 
 type HouseItem = {
   title: string;
@@ -24,7 +24,6 @@ export function HouseGallery({
 }: HouseGalleryProps) {
   return (
     <section className="mx-auto max-w-6xl px-4 py-8">
-      <SectionHeader title={title} subtitle={subtitle} actionText={actionText} />
 
       <div className="grid gap-5 md:grid-cols-3">
         {items.map((item) => (
