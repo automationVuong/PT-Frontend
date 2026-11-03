@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Link from "next/link"; // Sử dụng Link của Next.js nếu dùng Next.js
+import { useEffect, useRef, useState, RefCallback, RefObject } from "react";
+import Link from "next/link";
 
 type CanvasDropDownProps = {
   label: string;
   groups: string[][];
-  hrefs?: string[][]; // Thêm mảng đường dẫn tương ứng với groups
-  ref?: React.RefObject<HTMLButtonElement | null>;
+  hrefs?: string[][];
+  ref?: RefObject<HTMLButtonElement | null> | RefCallback<HTMLButtonElement | null>;
 };
 
 export function CanvasDropDown({
@@ -23,7 +23,7 @@ export function CanvasDropDown({
   const internalRef = useRef<HTMLButtonElement | null>(null);
 
   const updatePosition = () => {
-    const node = externalRef?.current || internalRef.current;
+    const node = internalRef.current;
     if (!node) return;
 
     const rect = node.getBoundingClientRect();
@@ -82,7 +82,7 @@ export function CanvasDropDown({
           internalRef.current = node;
           if (typeof externalRef === "function") {
             externalRef(node);
-          } else if (externalRef) {
+          } else if (externalRef && "current" in externalRef) {
             (externalRef as React.MutableRefObject<HTMLButtonElement | null>).current = node;
           }
         }}
@@ -131,14 +131,13 @@ export function CanvasDropDown({
                   className="space-y-8"
                 >
                   {column.map((item, itemIndex) => {
-                    // Lấy đường dẫn tương ứng nếu được truyền vào, mặc định là "#"
                     const href = hrefs?.[columnIndex]?.[itemIndex] || "#";
 
                     return (
                       <Link
                         key={item}
                         href={href}
-                        onClick={() => setOpen(false)} // Ẩn menu khi bấm chuyển trang
+                        onClick={() => setOpen(false)}
                         className="block whitespace-nowrap text-slate-800 transition hover:text-slate-950"
                       >
                         {item}

@@ -1,9 +1,7 @@
 export { HeroSearch } from "./components/HeroSearch";
-export { SectionHeader } from "./components/SectionHeader";
 export { PropertyCard } from "./components/PropertyCard";
 export { ListingGrid } from "./components/ListingGrid";
 export { HouseGallery } from "./components/HouseGallery";
-export { Header } from "./components/Header";
 export { HeroBanner } from "./components/HeroBanner";
 export { HomeInfo } from "./components/HomeInfo";
 export { FeatureCards } from "./components/FeatureCards";
