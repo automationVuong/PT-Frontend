@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 
 type PropertyCardProps = {
@@ -32,7 +35,15 @@ export function PropertyCard({
   featured = false,
   href,
 }: PropertyCardProps) {
+  const [isSaved, setIsSaved] = useState(false);
   const cardHref = href ?? `/vi/home/second-hand-house/${slugify(title)}`;
+
+  const handleSaveClick = (e: React.MouseEvent) => {
+    e.preventDefault(); // Ngăn chặn Link chuyển trang khi bấm vào nút lưu
+    e.stopPropagation();
+    setIsSaved(!isSaved);
+    // Thêm logic lưu/bỏ lưu bất động sản của bạn ở đây (ví dụ: gọi API)
+  };
 
   return (
     <Link href={cardHref} className="block w-full cursor-pointer">
@@ -46,10 +57,13 @@ export function PropertyCard({
           ) : null}
           <button
             type="button"
-            className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-sm text-slate-700 shadow-sm"
+            onClick={handleSaveClick}
+            className={`absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-sm shadow-sm transition ${
+              isSaved ? "text-rose-500 font-bold" : "text-slate-700 hover:text-rose-500"
+            }`}
             aria-label="Save property"
           >
-            ♡
+            {isSaved ? "♥" : "♡"}
           </button>
         </div>
 

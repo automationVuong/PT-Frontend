@@ -180,7 +180,7 @@ export function ResultList({ viewMode }: ResultListProps) {
                     </div>
 
                     <div className="pt-2">
-                      <Link href={`/vi/home/second-hand-house/${slugify(featured.title)}`} className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-[12px] font-medium text-slate-700 hover:bg-slate-100">
+                      <Link href={`/du-an/${slugify(featured.title)}`} className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-[12px] font-medium text-slate-700 hover:bg-slate-100">
                         Xem chi tiết
                       </Link>
                     </div>
