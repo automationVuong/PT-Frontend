@@ -1,13 +1,8 @@
 'use client';
 import React, { useState } from 'react';
-import { Property } from '../types';
 import { Phone, Mail, Calendar, Building } from 'lucide-react';
 
-interface SidebarCardProps {
-  property: Property;
-}
-
-export const SidebarCard: React.FC<SidebarCardProps> = ({ property }) => {
+export const SidebarCard: React.FC<any> = ({ property }) => {
   const [tab, setTab] = useState<'email' | 'call' | 'tour'>('email');
 
   return (
