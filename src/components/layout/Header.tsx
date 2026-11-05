@@ -1,157 +1,125 @@
-"use client";
+'use client';
+import React, { useState } from 'react';
+import { Home } from 'lucide-react';
+import { CanvasDropDown } from '../ui/CanvasDropDown';
+import { AuthModal } from './AuthModal';
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { CanvasDropDown } from "@/components/ui/CanvasDropDown";
-import { UserDrawer } from "@/components/layout/UserDrawer";
-
-export default function Header() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+export const Header: React.FC = () => {
+  const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
 
   return (
     <>
-      <header className="relative z-40 w-full border-b border-slate-200 bg-white">
-        <div className="mx-auto grid max-w-[1280px] grid-cols-[220px_minmax(0,1fr)_180px] items-center gap-4 px-4 py-3 lg:px-6">
+      <header className="w-full bg-white border-b border-gray-200 px-10 py-3 flex items-center justify-between text-sm font-medium text-gray-700">
+        {/* Left section: Logo & Nav Links */}
+        <div className="flex items-center space-x-6 ml-60">
+          <a href="#" className="flex items-center gap-1 text-red-600 font-bold text-xl tracking-tight">
+            <Home className="w-6 h-6 fill-red-600 stroke-white" />
+            <span>realtor<span className="text-gray-900">.com</span></span>
+          </a>
 
-          {/* Logo quay về trang chủ */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-9 w-9 overflow-hidden flex items-center justify-center">
-              <Image
-                src="/logo.jpg"
-                alt="Logo Bất Động Sản"
-                fill
-                className="object-contain transition-transform group-hover:scale-105"
-                priority
-              />
-            </div>
-
-            <div className="text-[16px] font-black tracking-[-0.04em] text-slate-900 group-hover:text-teal-700 transition-colors">
-              Q-broker
-            </div>
-          </Link>
-
-          {/* Navigation với đường dẫn thực tế */}
-          <nav className="flex items-center justify-center gap-7 text-[13px] font-medium text-slate-700">
-            <CanvasDropDown
-              label="Mua"
+          {/* Navigation Bar */}
+          <nav className="hidden md:flex items-center space-x-3 text-gray-800">
+            {/* Dropdown Items (Mua nhà, Bán nhà, Cho thuê) */}
+            <CanvasDropDown 
+              label="Mua nhà"
               groups={[
-                ["Bất động sản để bán", "Nhà mới để bán", "Vay mua nhà"],
-                ["Định giá tài sản", "Nhà đầu tư"],
+                ["Nhà đất bán", "Lịch mở bán (Open Houses)", "Mới giao dịch"],
+                ["Nhà phát mại", "Dự án mới"]
               ]}
               hrefs={[
-                ["/du-an", "/du-an", "/du-an"],
-                ["/du-an", "/du-an"],
+                ["/buy/homes", "/buy/open-houses", "/buy/sold"],
+                ["/buy/foreclosures", "/buy/new-construction"]
+              ]}
+            />
+            <CanvasDropDown 
+              label="Bán nhà"
+              groups={[
+                ["Tìm môi giới", "Định giá nhà", "Cẩm nang người bán"],
+                ["Giá trị tài sản", "Dịch vụ chuyển nhà"]
+              ]}
+              hrefs={[
+                ["/sell/agents", "/sell/value", "/sell/guide"],
+                ["/sell/equity", "/sell/moving"]
+              ]}
+            />
+            <CanvasDropDown 
+              label="Cho thuê"
+              groups={[
+                ["Tất cả bĐS cho thuê", "Căn hộ cho thuê", "Nhà nguyên căn cho thuê"],
+                ["Đăng tin cho thuê", "Quản lý BĐS cho thuê"]
+              ]}
+              hrefs={[
+                ["/rent", "/rent/apartments", "/rent/houses"],
+                ["/rent/post", "/rent/manage"]
               ]}
             />
 
-            <CanvasDropDown
-              label="Thuê"
-              groups={[
-                ["Nhà cho thuê", "Căn hộ cho thuê", "Biểu mẫu thuê"],
-                ["Hướng dẫn thuê", "Địa điểm nổi bật"]
-              ]}
-              hrefs={[
-                ["/du-an", "/du-an", "/du-an"],
-                ["/du-an", "/du-an"],
-              ]}
-            />
-
-            <CanvasDropDown
-              label="Giá nhà"
-              groups={[
-                ["Chỉ số giá nhà", "Giá nhà gần đây", "Biểu đồ giá"],
-                ["Khu vực hot", "So sánh giá"]
-              ]}
-              hrefs={[
-                ["/du-an", "/du-an", "/du-an"],
-                ["/du-an", "/du-an"],
-              ]}
-            />
-
-            <CanvasDropDown
-              label="Vay mua nhà"
-              groups={[
-                ["Lãi suất vay", "Tính khoản vay", "Hồ sơ vay"],
-                ["Tư vấn tài chính", "Lựa chọn ngân hàng"]
-              ]}
-              hrefs={[
-                ["/du-an", "/du-an", "/du-an"],
-                ["/du-an", "/du-an"],
-              ]}
-            />
-
-            <CanvasDropDown
-              label="Môi giới"
-              groups={[
-                ["Tìm môi giới", "Trò chuyện tư vấn", "Dịch vụ chuyên nghiệp"],
-                ["Đánh giá nhà", "Hỗ trợ khách hàng"]
-              ]}
-              hrefs={[
-                ["/nhan-tin", "/nhan-tin", "/nhan-tin"],
-                ["/nhan-tin", "/nhan-tin"],
-              ]}
-            />
-
-            <CanvasDropDown
-              label="Thương mại"
-              groups={[
-                ["Bất động sản thương mại", "Tìm văn phòng", "Tìm mặt bằng"],
-                ["Hỗ trợ đầu tư", "Đăng tin"]
-              ]}
-              hrefs={[
-                ["/du-an", "/du-an", "/du-an"],
-                ["/du-an", "/du-an"],
-              ]}
-            />
-
-            <CanvasDropDown
-              label="Khám phá"
-              groups={[
-                ["Tin tức bất động sản", "Cộng đồng", "Xu hướng thị trường"],
-                ["Video review", "Khuyến nghị"]
-              ]}
-              hrefs={[
-                ["/tin-tuc", "/tin-tuc", "/tin-tuc"],
-                ["/tin-tuc", "/tin-tuc"],
-              ]}
-            />
-
-            <CanvasDropDown
-              label="Quốc tế"
-              groups={[
-                ["Bất động sản quốc tế", "Nhà ở nước ngoài", "Đầu tư quốc tế"],
-                ["Địa điểm nổi tiếng", "Tư vấn pháp lý"]
-              ]}
-              hrefs={[
-                ["/tin-tuc", "/tin-tuc", "/tin-tuc"],
-                ["/tin-tuc", "/tin-tuc"],
-              ]}
-            />
-          </nav>
-
-          {/* Nút Tài khoản cá nhân */}
-          <div className="flex justify-end">
-            <button
-              type="button"
-              onClick={() => setIsDrawerOpen(true)}
-              className="inline-flex items-center gap-2 whitespace-nowrap rounded-[8px] border border-[#0f6b73] bg-white px-3.5 py-2 text-[13px] font-medium text-slate-700 shadow-[inset_0_0_0_1px_rgba(15,107,115,0.06)] transition hover:bg-slate-50 cursor-pointer"
+            {/* Standard Navigation Items without Dropdown */}
+            <a 
+              href="#" 
+              className="group relative inline-flex rounded-[8px] px-2 py-2 text-[13px] font-black text-slate-700 hover:text-slate-900 transition"
             >
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#0f6b73] text-[10px] font-bold text-white">
-                ●
-              </span>
-              Tài khoản của tôi
-            </button>
-          </div>
+              Vay mua nhà
+              <span className="absolute bottom-0 left-2 right-2 h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+            </a>
+
+            <a 
+              href="#" 
+              className="group relative inline-flex rounded-[8px] px-2 py-2 text-[13px] font-black text-slate-700 hover:text-slate-900 transition"
+            >
+              Tìm môi giới
+              <span className="absolute bottom-0 left-2 right-2 h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+            </a>
+
+            <a 
+              href="#" 
+              className="group relative inline-flex rounded-[8px] px-2 py-2 text-[13px] font-black text-slate-700 hover:text-slate-900 transition"
+            >
+              Nhà của tôi
+              <span className="absolute bottom-0 left-2 right-2 h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+            </a>
+
+            <a 
+              href="#" 
+              className="group relative inline-flex rounded-[8px] px-2 py-2 text-[13px] font-black text-slate-700 hover:text-slate-900 transition"
+            >
+              Tin tức & Phân tích
+              <span className="absolute bottom-0 left-2 right-2 h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+            </a>
+          </nav>
+        </div>
+
+        {/* Right section: User Actions */}
+        <div className="flex items-center space-x-5 mr-4">
+          <a 
+            href="#" 
+            className="group relative hidden sm:block text-slate-700 hover:text-black transition py-1 text-[13px] font-black"
+          >
+            Quản lý BĐS cho thuê
+            <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+          </a>
+
+          {/* Log in Button */}
+          <button 
+            onClick={() => setIsAuthOpen(true)}
+            className="group relative text-slate-700 hover:text-black transition py-1 text-[13px] font-black"
+          >
+            Đăng nhập
+            <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+          </button>
+
+          {/* Sign up Button */}
+          <button 
+            onClick={() => setIsAuthOpen(true)}
+            className="bg-gray-900 text-white px-4 py-2 rounded-full text-xs font-semibold hover:bg-gray-800 transition"
+          >
+            Đăng ký
+          </button>
         </div>
       </header>
 
-      {/* Slide-over UserDrawer */}
-      <UserDrawer 
-        isOpen={isDrawerOpen} 
-        onClose={() => setIsDrawerOpen(false)} 
-        userName="Vuong" 
-      />
+      {/* Auth Modal Overlay */}
+      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
     </>
   );
-}
+};

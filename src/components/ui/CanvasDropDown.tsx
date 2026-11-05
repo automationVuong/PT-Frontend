@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect, useRef, useState, RefCallback, RefObject } from "react";
 import Link from "next/link";
@@ -76,7 +76,7 @@ export function CanvasDropDown({
       onMouseEnter={openMenu}
       onMouseLeave={closeMenu}
     >
-      {/* Navigation trigger */}
+      {/* Navigation trigger button with black hover underline */}
       <button
         ref={(node) => {
           internalRef.current = node;
@@ -98,13 +98,17 @@ export function CanvasDropDown({
           }
         }}
         aria-expanded={open}
-        className={`inline-flex rounded-[8px] px-2 py-2 text-[13px] font-black transition ${
-          open
-            ? "bg-slate-50 text-slate-900"
-            : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
+        className={`group relative inline-flex rounded-[8px] px-2 py-2 text-[13px] font-black transition ${
+          open ? "text-slate-900" : "text-slate-700 hover:text-slate-900"
         }`}
       >
         {label}
+        {/* Animated black underline */}
+        <span
+          className={`absolute bottom-0 left-2 right-2 h-[2px] bg-black transition-transform origin-left ${
+            open ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+          }`}
+        />
       </button>
 
       {/* Full-width dropdown */}
@@ -119,7 +123,7 @@ export function CanvasDropDown({
       >
         {/* Full-width background */}
         <div className="w-full border-t border-slate-200 bg-[#f1f0ee] shadow-[0_18px_30px_rgba(15,23,42,0.08)]">
-          {/* Content aligned exactly under nav item */}
+          {/* Content aligned under nav item */}
           <div
             className="w-fit py-8"
             style={{ marginLeft: `${left}px` }}
